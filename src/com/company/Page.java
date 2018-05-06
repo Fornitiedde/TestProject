@@ -9,7 +9,7 @@ public class Page {
     private String Link;
     private ArrayList<String> StringList;
 
-    // Constructors
+    // Constructors, empty Link & Initialized List
     public Page(){
         this.Link = "";
         this.StringList = new ArrayList<>();
@@ -44,7 +44,7 @@ public class Page {
         }
     }
 
-    //
+    // Read Source Text
     public void read() throws Exception{
         URL u;
         Scanner s;
@@ -54,5 +54,37 @@ public class Page {
             while(s.hasNext()){
                 this.StringList.add(s.nextLine());
             }
+    }
+
+    // Interpert Source Text
+    public String checkLine(int index){
+        int border;
+        border = this.StringList.get(index).indexOf(">");
+        String type = this.StringList.get(index).substring(1,border);
+        return type;
+    }
+
+    // Check if title or text
+    public void action(String type){
+        type = type.toLowerCase();
+        switch(type){
+            case "title":
+                System.out.println("Title found");
+                break;
+            case "p":
+                System.out.println("Text found");
+                break;
+            default:
+                break;
+        }
+    }
+    public void build() throws Exception{
+        for(int i = 0; i<this.StringList.size(); i++){
+            //Check type of Line
+            //Display text, else move on to next line.
+            System.out.println(i);
+            System.out.println(checkLine(i));
+            action(checkLine(i));
+        }
     }
 }

@@ -8,6 +8,6 @@ public class Main {
         test = new Page();
         test.setLink("http://www.brainjar.com/java/host/test.html");
         test.read();
-        test.printList();
+        test.build();
     }
 }
