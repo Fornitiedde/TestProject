@@ -35,7 +35,7 @@ public class Page {
     public void add(String Item){
         this.StringList.add(Item);
     }
-
+    public int size(){return this.StringList.size(); }
     //Print List
     public void printList(){
         System.out.println("StringList: ");
@@ -51,7 +51,7 @@ public class Page {
             u = new URL(this.Link);
             s = new Scanner(u.openStream());
 
-            while(s.hasNext()){
+            while(s.hasNextLine()){
                 this.StringList.add(s.nextLine());
             }
     }
@@ -75,6 +75,8 @@ public class Page {
                 System.out.println("Text found");
                 break;
             default:
+                System.out.println("Unknown Type: ");
+                System.out.println(type);
                 break;
         }
     }
