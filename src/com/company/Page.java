@@ -65,7 +65,7 @@ public class Page {
     }
 
     // Check if title or text
-    public void action(String type){
+    public void PrintCheck(String type){
         type = type.toLowerCase();
         switch(type){
             case "title":
@@ -75,18 +75,18 @@ public class Page {
                 System.out.println("Text found");
                 break;
             default:
-                System.out.println("Unknown Type: ");
-                System.out.println(type);
                 break;
         }
     }
-    public void build() throws Exception{
+
+
+    public void search() throws Exception{
         for(int i = 0; i<this.StringList.size(); i++){
             //Check type of Line
             //Display text, else move on to next line.
-            System.out.println(i);
-            System.out.println(checkLine(i));
-            action(checkLine(i));
+            if(!this.StringList.get(i).isEmpty()){
+                PrintCheck(checkLine(i));
+            }
         }
     }
 }
